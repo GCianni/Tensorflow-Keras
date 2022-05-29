@@ -18,12 +18,12 @@ def load_weights(model, filepath):
     model.load_weights(filepath)
     return model
 
-ht5_model = load_ht5('models/medical_trial_model.h5')
+ht5_model = load_ht5('MLP/models/medical_trial_model.h5')
 print(ht5_model.summary())
 print(ht5_model.get_weights())
 #print(ht5_model.optimizer())
 
-json_model = load_json('models/medical_trial_json_model.txt')
+json_model = load_json('MLP/models/medical_trial_json_model.txt')
 print(json_model.summary())
 
 
@@ -33,5 +33,5 @@ model = Sequential([
     Dense(units=2, activation='softmax'),
 ])
 
-model = load_weights(model, 'models/medical_trial_weights.h5')
+model = load_weights(model, 'MLP/models/medical_trial_weights.h5')
 print(model.get_weights())

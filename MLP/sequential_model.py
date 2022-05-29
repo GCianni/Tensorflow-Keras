@@ -50,9 +50,9 @@ plot_confusion_matrix(y=y_test,yp=rounded_predictions,classes=cm_plot_labels)
         Checks first to see if file exists already
         If not, the model is saved to disk.
 """
-if os.path.isfile('models/medical_trial_model.h5') is False:
-    tf_save(model,'models/medical_trial_model.h5')
-    model_to_json(model,'models/medical_trial_json_model.txt')
-    save_weights(model, 'models/medical_trial_weights.h5')
+if os.path.isfile('MLP/models/medical_trial_model.h5') is False:
+    tf_save(model,'MLP/models/medical_trial_model.h5')
+    model_to_json(model,'MLP/models/medical_trial_json_model.txt')
+    save_weights(model, 'MLP/models/medical_trial_weights.h5')
 
 
