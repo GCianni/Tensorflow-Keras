@@ -9,6 +9,7 @@ from tensorflow.keras.metrics import categorical_crossentropy
 
 from data_processing_NN import generate_norm_data
 from confusion_matrix import plot_confusion_matrix
+from model_save import tf_save, model_to_json, save_weights
 
 physical_devices = tf.config.experimental.list_physical_devices('GPU')
 print("Num GPUs Available: ", len(physical_devices))
@@ -50,5 +51,8 @@ plot_confusion_matrix(y=y_test,yp=rounded_predictions,classes=cm_plot_labels)
         If not, the model is saved to disk.
 """
 if os.path.isfile('models/medical_trial_model.h5') is False:
-   pass
+    tf_save(model,'models/medical_trial_model.h5')
+    model_to_json(model,'models/medical_trial_json_model.txt')
+    save_weights(model, 'models/medical_trial_weights.h5')
+
 
